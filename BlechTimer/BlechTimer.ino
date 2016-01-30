@@ -9,6 +9,17 @@ RTCDateTime rdt;
 
 #include <Servo.h>
 
+// Timer to turn off the main gas valve for a stove in Blech mode
+// Written for an Arduino Nano (clone)
+// Connect a servo to D9.
+// Connect a regular "Digital Tube" board (8 LED, 8 7-segment LED units, 8 buttons, TM1638 chip) to Strobe: A2, Clock: A1, Data: A0.
+// Connect a DS3231 module to the I2C pins (SDA: A4 and SCL: A5)
+
+// Button 0 and 1 (from left) set the servo to on and off in base mode (display shows On or OFF). Button 3 changes to next state.
+// Button 4-7 set the off time (hour + and -, min + and -) for the countdown. Display shows tOFF. Button 3 changes to next state.
+// Button 4-7 set the on postition of servo (10s + and -, 1s + and -). Display shows POn. Button 3 changes to next state.
+// Button 4-7 set the off postition of servo (10s + and -, 1s + and -). Display shows POFF. Button 3 changes to initial state.
+
 Servo myservo;
 int on_pos, off_pos = 0;
 
